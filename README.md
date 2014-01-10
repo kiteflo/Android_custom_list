@@ -280,3 +280,5 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
 DONE! This enables you to display your domain objects in a more or less nice but efficient way! Congrats and checkout our further Android github repositories...
 
 Cheers, Florian!
+
+[![Image](images/twitter.png "Image title") ](https://twitter.com/_flomueller "Twitter")
