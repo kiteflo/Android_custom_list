@@ -227,6 +227,56 @@ public class CustomerListAdapter extends ArrayAdapter<Customer>
 }
 ```
 
+Ok, you're almost done! Last step is to add the custom list to your main layout...
+
+### Add custom list to your main layout
+
+Finally we have to put the list component to our UI so add a list component to your main layout (in our case fragment_main.xml - I'm fragment fan so I tend to put everythin in a fragment instead of adding stuff to the UI directly...). Please notice the list has an ID property (**lv_customers**) which we will use in a next step:
+
+```xml
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jooik.customlist.MainActivity$PlaceholderFragment">
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_customers"
+        />
+</LinearLayout>
+
+```
+
+Now the list from the UI needs to be linked to our CustomListAdapter this is simply achieved by fetching the list (for example during onCreateView procedure) and applying the adapter to the list. Of course we need to pass in the data we want to render as well to the adapter:
 
 ```java
+// ------------------------------------------------------------------------
+// fragment/user interaction
+// ------------------------------------------------------------------------
+
+@Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                         Bundle savedInstanceState) {
+    view = inflater.inflate(R.layout.fragment_main, container, false);
+
+    // fetch customers...
+    List<Customer> allCustomers = customerService.findAllCustomers();
+
+    CustomerListAdapter cla = new CustomerListAdapter(inflater.getContext(),
+            R.layout.customer_row,
+            allCustomers);
+
+    // fetch UI container and mixin contents...
+    ListView lvCustomers = (ListView)view.findViewById(R.id.lv_customers);
+    lvCustomers.setAdapter(cla);
+
+    return view;
+}
 ```
+
+DONE! This enables you to display your domain objects in a more or less nice but efficient way! Congrats and checkout our further Android github repositories...
+
+Cheers, Florian!
