@@ -33,16 +33,6 @@ public class Customer
     // GETTER & SETTER
     // ------------------------------------------------------------------------
 
-    public int getDrawable()
-    {
-        return drawable;
-    }
-
-    public void setDrawable(int drawable)
-    {
-        this.drawable = drawable;
-    }
-
     public String getFirstname()
     {
         return firstname;
@@ -51,6 +41,16 @@ public class Customer
     public void setFirstname(String firstname)
     {
         this.firstname = firstname;
+    }
+
+    public int getDrawable()
+    {
+        return drawable;
+    }
+
+    public void setDrawable(int drawable)
+    {
+        this.drawable = drawable;
     }
 
     public String getLastname()
