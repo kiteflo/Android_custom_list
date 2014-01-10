@@ -66,9 +66,53 @@ public class Customer
 }
 ```
 
+And a very simple Java service providing some domain objects (in this case generated statically, no DB involved):
+
+```java
+public class CustomerService
+{
+    public List<Customer> findAllCustomers()
+    {
+        List<Customer> customers = new ArrayList<Customer>();
+
+        // Bart Simpson
+        Customer customer = new Customer("Bart","Simpson",
+                "https://dl.dropboxusercontent.com/u/33720504/github/Android_custom_list/simpsons/bart.png",
+                "Eldest child of Homer and Marge; brother of Lisa and Maggie.",
+                R.drawable.bart_transparent);
+        customers.add(customer);
+
+        // Chief Clancy Wiggum
+        customer = new Customer("Clancy","Wiggum",
+                "https://dl.dropboxusercontent.com/u/33720504/github/Android_custom_list/simpsons/chief_clancy_wiggum.png",
+                "Springfield Chief of Police.",
+                R.drawable.chief_clancy_wiggum_transparent);
+        customers.add(customer);
+
+        // Homer Simpson
+        customer = new Customer("Homer","Simpson",
+                "https://dl.dropboxusercontent.com/u/33720504/github/Android_custom_list/simpsons/homer.png",
+                "Husband of Marge; father of Bart, Lisa, and Maggie.",
+                R.drawable.homer_transparent);
+        customers.add(customer);
+        
+        ...
+        
+        return customers;
+    }
+}
+```
+
+Ok, that's all we assume to be somewhere in your Android project, we usually create a service/data folder for this stuff, please see our dummy project structure within the screenshot below - feel free to adapt this structure or use an arbitrary structure chsoing on your own.
+
+![Project Structure](images/structure.png)
+
+```java
+```
 
 
-
+```java
+```
 
 
 ```java
